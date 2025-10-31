@@ -1,0 +1,80 @@
+@startuml
+title Diagrama UML - Código proporcionado (Daniel Martinez 2025-2)
+
+' BLOQUE VEHÍCULOS
+@startuml
+title UML del repositorio - Daniel 2025-2
+
+' BLOQUE VEHÍCULOS
+class Vehicle {
+  - speed: int
+  + brand: string
+  + Vehicle(b: string, s: int)
+  + Vehicle(b: string)
+  + Vehicle(s: int)
+  + ~Vehicle()
+  + getSpeed(): int
+  + setSpeed(s: int): void
+  + setBrand(b: string): void
+  + getBrand(): string
+  + display(): void
+}
+
+class Car {
+  - numDoors: int
+  - numWheels: int
+  + Car(b: string, s: int, doors: int, wheels: int = 4)
+  + ~Car()
+  + getNumDoors(): int
+  + setNumDoors(doors: int): void
+  + getNumWheels(): int
+  + setNumWheels(wheels: int): void
+  + display(): void
+}
+
+class AirVehicle {
+  - altitude: int
+  - isMultirotor: bool
+  + AirVehicle(b: string, s: int, alt: int)
+  + display() const: void
+}
+
+Car --|> Vehicle
+AirVehicle --|> Vehicle
+
+' BLOQUE FORMAS 3D
+abstract class Shape3D {
+  + getVolume(): double
+  + getSurfaceArea(): double
+}
+
+class Cube {
+  - length: double
+  + Cube(len: double)
+  + Cube()
+  + getVolume(): double
+  + getSurfaceArea(): double
+  + setLength(len: double): void
+  + getLength(): double
+  + ~Cube()
+}
+
+Cube --|> Shape3D
+
+' BLOQUE COMPLEX
+class Complex {
+  - real: double
+  - imag: double
+  + Complex()
+  + Complex(re: double, im: double)
+  + Complex(const Complex &c)
+  + ~Complex()
+  + SetData(): void
+  + SetReal(re: double): void
+  + SetImag(im: double): void
+  + GetReal(): double
+  + GetImag(): double
+  + display(): void
+}
+
+@enduml
